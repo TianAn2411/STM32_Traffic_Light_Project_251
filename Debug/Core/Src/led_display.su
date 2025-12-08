@@ -1,0 +1,6 @@
+led_display.c:13:6:updateTrafficLight	16	static
+led_display.c:132:6:displayAutoTrafficLight	8	static
+led_display.c:204:6:updateCounter	4	static
+led_display.c:218:6:displayTime	8	static
+led_display.c:230:6:clearLED	8	static
+led_display.c:237:6:displayBlinkTrafficLight	16	static
