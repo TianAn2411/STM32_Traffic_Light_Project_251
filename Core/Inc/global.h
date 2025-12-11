@@ -65,6 +65,7 @@ extern int road1_state, road2_state;
 extern int road1_counter, road2_counter;
 extern int counter;
 extern int temp_duration;
+extern int led_index;
 
 //Counter for all task
 extern int t_road1, t_road2, t_scan_led, t_1s, t_blink;

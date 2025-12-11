@@ -22,7 +22,7 @@ int keyReg3[MAX_BUTTON];
 int longPressedTime[MAX_BUTTON];
 int button_flag[MAX_BUTTON];
 int button_long_flag[MAX_BUTTON];
-
+int led_index = 0;
 int t_road1 = 0;
 int t_road2 = 0;
 int t_1s = 100;
