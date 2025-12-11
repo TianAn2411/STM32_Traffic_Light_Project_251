@@ -10,7 +10,6 @@
 
 //#include "7seg.h"
 #include "state_machine.h"
-#include "led_display.h"
 #include "software_timer.h"
 #include "button.h"
 #include "main.h"
@@ -23,7 +22,6 @@
 extern int mode;
 
 //light state
-
 #define NORMAL_RED 		11
 #define NORMAL_YELLOW	12
 #define NORMAL_GREEN 	13
@@ -62,9 +60,6 @@ extern int timer_flag[MAX_TIMER];
 extern int timer_counter[MAX_TIMER];
 
 //LED and 7SEG
-extern uint8_t led7seg_num_display[];
-extern int led_buffer[4];
-extern int led_index;
 extern int red_time, green_time, yellow_time;
 extern int road1_state, road2_state;
 extern int road1_counter, road2_counter;
