@@ -25,6 +25,7 @@
 #include "global.h"
 #include "scheduler.h"
 #include "i2c_lcd.h"
+#include "traffic_lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,11 +44,12 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
-I2C_LCD_HandleTypeDef lcd1;
+
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
 int state;
+I2C_LCD_HandleTypeDef lcd1;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,9 +57,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_I2C1_Init(void);
-void blinkLED(){
-	HAL_GPIO_TogglePin(LED_RED_PIN_GPIO_Port, LED_RED_PIN_Pin);
-}
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -104,18 +103,16 @@ int main(void)
   lcd1.address = 0x21<<1;
   lcd_init(&lcd1);
   lcd_clear(&lcd1);
-  lcd_gotoxy(&lcd1, 0, 0);
-  lcd_puts(&lcd1, "STM32 I2C LCD");
-  lcd_gotoxy(&lcd1, 0, 1);
-  lcd_puts(&lcd1, "FIXED BY VIET");
+
+  Traffic_LCD_Init(&lcd1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   SCH_Add_Task(timeCounter, 0, 1);
   SCH_Add_Task(getKeyInput, 0, 1);
-  SCH_Add_Task(blinkLED, 0 ,25);
   SCH_Add_Task(fsm_run, 0, 1);
+  SCH_Add_Task(Traffic_LCD_Display_Task, 0, 10);
 
   while (1)
   {

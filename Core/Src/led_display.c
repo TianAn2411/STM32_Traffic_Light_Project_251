@@ -215,18 +215,7 @@ void updateCounter(){
 //		updateLEDBuffer(2, road2_counter);
 	}
 }
-void displayTime(){
-	updateCounter();
-	if (t_scan_led == 0){
-//		setTimer(2, 10);
-		t_scan_led = 10;
-//		update7SEG(led_index);
-		led_index = led_index + 1;
-		if (led_index > 3){
-			led_index = 0;
-		}
-	}
-}
+
 void clearLED(){
 	HAL_GPIO_WritePin(LED1_A_GPIO_Port, LED1_A_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LED1_B_GPIO_Port, LED1_B_Pin, GPIO_PIN_RESET);

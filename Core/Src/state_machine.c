@@ -6,12 +6,13 @@
  */
 
 #include "global.h"
-int temp_duration;
+//int temp_duration;
+
 void fsm_run(){
-//	updateCounter();
+	updateCounter();
 	switch (mode){
 		case INIT:
-			clearLED();
+			//clearLED();
 			mode = AUTO_STATE;
 //			setTimer(0, red_time * 100);
 			t_road1 = red_time * 100;
@@ -28,7 +29,7 @@ void fsm_run(){
 			break;
 		case AUTO_STATE:
 			displayAutoTrafficLight(0);
-			displayTime();
+			//displayTime();
 			if(isButtonPressed(0)){
 				mode = MANUAL_STATE;
 				manual_blink_mode = BLINK_RED_GREEN;
@@ -88,23 +89,13 @@ void fsm_run(){
 					if(isButtonPressed(1)){
 						manual_blink_mode = BLINK_YELLOW_RED;
 						t_blink = 300;
-//						updateLEDBuffer(1,3);
-
 						break;
-					}
-					if(t_scan_led == 0){
-						t_scan_led = 10;
-//						update7SEG(led_index++);
-						if (led_index > 3){
-							led_index = 0;
-						}
 					}
 					break;
 				case BLINK_YELLOW_RED:
 					if(t_blink <= 0){
 						manual_blink_mode = BLINK_RED_GREEN;
 						t_blink  = 500;
-//						updateLEDBuffer(1,2);
 						break;
 					}
 //					displayBlinkTrafficLight(manual_blink_mode);
@@ -160,15 +151,14 @@ void fsm_run(){
 						}
 //						updateLEDBuffer(1, temp_duration);
 					}
-					if (t_scan_led == 0){
-						t_scan_led = 10;
-//						update7SEG(led_index++);
-						if (led_index > 3){
-							led_index = 0;
-						}
-
-					}
 					if (isButtonPressed(2)){
+						temp_duration--;
+						if (temp_duration < 0){
+							temp_duration = 99;
+						}
+//						updateLEDBuffer(1, temp_duration);
+					}
+					if (isButtonPressed(3)){
 						red_time = temp_duration;
 						break;
 					}
@@ -185,6 +175,13 @@ void fsm_run(){
 //						updateLEDBuffer(2, 3);
 						break;
 					}
+					if (t_scan_led == 0){
+						t_scan_led = 10;
+						if (led_index > 3){
+							led_index = 0;
+						}
+
+					}
 					break;
 				case CONFIG_GREEN:
 					if (manual_blink_mode != BLINK_GREEN){
@@ -199,16 +196,14 @@ void fsm_run(){
 						}
 //						updateLEDBuffer(1, temp_duration);
 					}
-					if (t_scan_led == 0){
-//						setTimer(2, 10);
-						t_scan_led = 10;
-//						update7SEG(led_index++);
-						if (led_index > 3){
-							led_index = 0;
-						}
-
-					}
 					if (isButtonPressed(2)){
+						temp_duration--;
+						if (temp_duration < 0){
+							temp_duration = 99;
+						}
+//						updateLEDBuffer(1, temp_duration);
+					}
+					if (isButtonPressed(3)){
 						green_time = temp_duration;
 //						updateLEDBuffer(1, temp_duration);
 //						updateLEDBuffer(2, 3);
@@ -240,16 +235,14 @@ void fsm_run(){
 						}
 //						updateLEDBuffer(1, temp_duration);
 					}
-					if (t_scan_led == 0){
-//						setTimer(2, 10);
-						t_scan_led = 10;
-//						update7SEG(led_index++);
-						if (led_index > 3){
-							led_index = 0;
-						}
-
-					}
 					if (isButtonPressed(2)){
+						temp_duration--;
+						if (temp_duration < 0){
+							temp_duration = 99;
+						}
+//						updateLEDBuffer(1, temp_duration);
+					}
+					if (isButtonPressed(3)){
 						yellow_time = temp_duration;
 //						mode = AUTO_STATE;
 //						road1_counter = red_time;

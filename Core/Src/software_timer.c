@@ -42,9 +42,6 @@ void timeCounter(){
 	if (t_road2 > 0){
 		t_road2--;
 	}
-	if (t_scan_led > 0){
-		t_scan_led--;
-	}
 	if (t_1s > 0){
 		t_1s--;
 	}

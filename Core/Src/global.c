@@ -13,6 +13,7 @@ int road1_counter, road2_counter;
 int manual_blink_mode = INIT;
 int config_mode = CONFIG_RED;
 int counter = 0;
+int temp_duration = 0;
 int led_buffer[4] = {0};
 uint8_t led7seg_num_display[] = {
 		/*0*/ 0x40,/*0b1000000*/

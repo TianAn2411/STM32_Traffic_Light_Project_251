@@ -1,0 +1,2 @@
+traffic_lcd.c:14:6:Traffic_LCD_Init	16	static
+traffic_lcd.c:20:6:Traffic_LCD_Display_Task	8	static

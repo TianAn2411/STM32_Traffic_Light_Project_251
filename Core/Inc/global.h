@@ -47,7 +47,7 @@ extern int config_mode;
 #define LONG_PRESSED_TIME	 200 //(200ms)
 #define NORMAL_STATE	GPIO_PIN_SET
 #define PRESSED_STATE	GPIO_PIN_RESET
-#define MAX_BUTTON		3
+#define MAX_BUTTON		4
 extern int longPressedTime[MAX_BUTTON];
 extern int button_flag[MAX_BUTTON];
 extern int button_long_flag[MAX_BUTTON];
@@ -69,6 +69,7 @@ extern int red_time, green_time, yellow_time;
 extern int road1_state, road2_state;
 extern int road1_counter, road2_counter;
 extern int counter;
+extern int temp_duration;
 
 //Counter for all task
 extern int t_road1, t_road2, t_scan_led, t_1s, t_blink;
